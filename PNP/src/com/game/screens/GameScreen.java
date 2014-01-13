@@ -1,3 +1,11 @@
+/*
+ * Game screen is main screen that handles game displaying
+ * GameScreen class contains WorldController, WorldRenderer, and World instances:
+ * 			WorldController: handles getting inputs from user
+ * 			WorldRenderer: handles graphics displaying
+ * 			World: handles the game world which include all other objects, characters,...
+ */
+
 package com.game.screens;
 
 

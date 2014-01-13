@@ -14,7 +14,8 @@ public class PartAndPortal extends Game {
 
 	@Override
 	public void create() {
-		setScreen(getGameScreen());
+		//setScreen(getGameScreen());
+		setScreen(getSplashScreen());
 	}
 	
 	//get screen for splash

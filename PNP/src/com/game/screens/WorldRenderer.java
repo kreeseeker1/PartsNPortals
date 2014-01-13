@@ -24,15 +24,21 @@ public class WorldRenderer implements Disposable {
 	/** Textures **/
 	private Texture bobTexture;
 
+	/*
+	 * Notes: We could put all tasks in init() method inside this constructor.
+	 * However, sometimes we need to reset our world without re initialize the entire object,
+	 * 			and to avoid slowing down caused by garbage collection, we should create init() 
+	 * 
+	 */
 	public WorldRenderer(World world, WorldController worldController){
 		this.world = world;
 		this.worldController = worldController;
 		batch = new SpriteBatch();
-		init();
+		init(); //call init to initialize the camera position/
+		
 	}
 	
-	public void init() {
-		
+	public void init() {		
 		camera = new OrthographicCamera(Constants.VIEWPORT_WIDTH,Constants.VIEWPORT_HEIGHT);		
 		camera.position.set(0,0,0);
 		camera.update();
@@ -50,8 +56,10 @@ public class WorldRenderer implements Disposable {
 		renderTestObjects();
 	}
 	
+	//a test method to render object onto the screen
+	//we first call method applyTo to apply to our current camera
 	private void renderTestObjects() {
-		worldController.getCameraHelper().applyTo(this.getCamera());
+		worldController.getCameraHelper().applyTo(this.getCamera()); //call this everytime we render something to set camera correctly
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		for(Sprite sprite: world.getTestSprites()) {

@@ -15,7 +15,7 @@ public class World {
 
 	// the blocks making up the world. Array class from libgdx
 	Array<Block> blocks = new Array<Block>();
-	// bob
+	// bob blocks
 	Bob bob;
 
 	public Array<Block> getBlocks() {
@@ -64,6 +64,9 @@ public class World {
 		blocks.add(new Block(new Vector2(6, 3)));
 		blocks.add(new Block(new Vector2(6, 4)));
 		blocks.add(new Block(new Vector2(6, 5)));
+		
+		blocks.add(new Block(new Vector2(6, 9)));
+		blocks.add(new Block(new Vector2(6, 3)));
 	}
 
 	private void initTestObjects() {
